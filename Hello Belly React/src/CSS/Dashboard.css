@@ -1,0 +1,834 @@
+/* General layout */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  color: black;
+  background-color: #ffe6e6;
+}
+
+/* Navbar */
+.dashboard-navbar {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.dashboard-main {
+  margin-left: 250px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-title {
+  font-size: 1.5em;
+}
+
+/* Main Content */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2.1fr 0.9fr; /* Adjust column sizes */
+  grid-template-rows: 1fr 1fr;        /* Adjust row sizes */
+  grid-gap: 20px;
+  height: 100%; /* Adjust based on header height */
+}
+
+/* Calendar Section */
+.dashboard-calendar {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 535px;
+  height: 100%; /* Ensure the calendar fills the available space */
+}
+
+.dashboard-calendar-header {
+  display: flex;
+  justify-content: center; /* Center the header content */
+  align-items: center;
+}
+
+.dashboard-calendar-header h2 {
+  font-size: 1.4em;
+  margin: 0; /* Remove margin */
+}
+
+.dashboard-calendar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Adjust padding for larger buttons */
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px; /* Adjust width for larger buttons */
+  height: 50px; /* Adjust height for larger buttons */
+  font-size: 1em; /* Adjust font size for larger buttons */
+}
+
+.dashboard-action-button:hover {
+  background-color: #0056b3;
+}
+
+.calendar-container {
+  flex-grow: 1; /* Ensure the calendar fills the available space */
+  width: 100%;  /* Ensure the calendar fits the div */
+  height: calc(100% - 40px); /* Adjust height to fit content, considering header height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-legend {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 10%;
+  left: 68%;
+  transform: translateY(-50%);
+}
+
+.legend-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.legend-appointments {
+  background-color: pink;
+}
+
+.appointments-marker {
+  background-color: blue;
+}
+
+
+
+/* Resources Section */
+.dashboard-resources {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 500px;
+  height: 144.5%; /* Ensure the component fills the available space */
+}
+
+.pregnancy-qa {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.pregnancy-qa-title {
+  text-align: center;
+  margin: 0;
+}
+
+.pregnancy-qa-input {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pregnancy-qa-ask-button {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pregnancy-qa-ask-button:hover {
+  background-color: #0056b3;
+}
+
+.pregnancy-qa-chat-log {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.pregnancy-qa-chat-entry {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.pregnancy-qa-videos-section {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 10px;
+  margin-top: auto;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.pregnancy-qa-video {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pregnancy-qa-video-title {
+  margin: 0;
+  font-size: 10px;
+  width: 200px;
+  height: auto;
+  white-space: normal;
+}
+
+.pregnancy-qa-video-iframe {
+  width: 200px;
+  height: 150px;
+}
+
+/* Upcoming Appointments Section */
+.dashboard-upcoming-appointments {
+  background-color: #f0f8ff;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+  margin-left: 200px;
+  margin-right: 400px;
+  margin-top: 40px;
+}
+
+.dashboard-upcoming-appointments h2 {
+  text-align: center; /* Center the label */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -20px;
+}
+
+.dashboard-appointments-header {
+  margin-top: 5px;
+}
+
+.appointments-count {
+  display: inline-block;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+/* Appointments List */
+.appointments-list {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the appointments */
+  position: relative;
+  height: 100%;
+  margin-top: 15px;
+}
+
+.appointment-item {
+  background-color: #f8f9fa;
+  padding: 0px; /* Reduce padding */
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 10px; /* Reduce margin */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.appointment-item h3 {
+  margin-top: -10px;
+}
+
+.appointment-item button {
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.appointment-item button:hover {
+  background-color: #0056b3;
+}
+
+.appointments-list > .carousel-button {
+  background-color: #007bff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.appointments-list > .carousel-button:hover {
+  background-color: #0056b3; /* Darker gray on hover */
+}
+
+.carousel-button-left {
+  color: white;
+  left: -50px;
+}
+
+.carousel-button-right {
+  color: white;
+  right: -50px;
+}
+
+/* Google Maps Section */
+.dashboard-google-maps {
+  display: flex-column;
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-top: 40px;
+  margin-left: -400px;
+  margin-right: 560px;
+}
+
+/* Centering Popup */
+.dashboard-google-maps .google-maps-selected-place {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Map Legend */
+.map-legend {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.8em; /* Smaller text size */
+  width: 120px; /* Adjust the width as needed */
+}
+
+.map-legend h3 {
+  margin: 0px;
+  font-size: 14px; /* Smaller heading size */
+}
+
+.map-legend ul {
+  list-style: none;
+  margin: 0;
+}
+
+.map-legend li {
+  margin-bottom: -15px;
+  font-size: 10px;
+  margin-top: -15px;
+}
+
+.map-legend span {
+  display: inline-block;
+  width: 10px; /* Smaller size */
+  height: 10px; /* Smaller size */
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.hospital-marker {
+  background-color: red;
+}
+
+.womens-physicians-marker {
+  background-color: blue;
+}
+
+.obgyn-marker {
+  background-color: green;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Adjust the max-width as needed */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Animation for carousel */
+.appointment-item.left-exit {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.appointment-item.left-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.appointment-item.right-exit {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.appointment-item.right-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.appointment-item.animate {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  margin-top: 45px;
+  left: 285px; /* Position to the left, next to the navbar */
+  top: 80.5%; /* Center vertically */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.floating-buttons .dashboard-action-button {
+  width: 150px; /* Larger buttons */
+  height: 100px; /* Larger buttons */
+  font-size: 1em; /* Larger font size */
+}
+
+/* ChatPage Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffe6e6;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%; /* Ensure the modal does not exceed 80% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide overflow */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ChatPage Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffe6e6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%; /* Ensure the modal does not exceed 80% of the viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Use full width */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #f0f8ff; /* Use the soft blue color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: calc(100% - 300px); /* Make modal content wider by 300px */
+  max-width: 1250px; /* Ensure the modal content has a max-width */
+  max-height: 80%; /* Ensure the modal does not exceed 80% of the viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ChatPage Styles */
+.chat-page {
+  display: flex;
+  height: 100%;
+}
+
+.chat-sidebar {
+  width: 30%; /* Increase the width */
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.chat-log-container {
+  width: 35%; /* Adjust the width */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.chat-log {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+  height: 400px; /* Fixed height for the chat log */
+}
+
+.chat-entry {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chat-entry.user {
+  background-color: #e1f7d5;
+  align-self: flex-end;
+}
+
+.chat-entry.provider {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+
+.chat-current {
+  width: 35%; /* Adjust the width */
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffe6e6; /* Use the soft pink color */
+  border-bottom: 1px solid #ccc;
+}
+
+.chat-input {
+  display: flex;
+  flex-direction: column; /* Change to column to stack the input and button */
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ccc;
+  margin-top: auto; /* Push the input to the bottom */
+}
+
+.chat-input input,
+.chat-input textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Add margin between inputs and button */
+}
+
+.chat-input button {
+  padding: 10px;
+  background-color: #0056b3; /* Darker blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #003f7f;
+}
+
+.upload-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Make button wider */
+}
+
+.uploadButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  padding: 10px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin at the top */
+}
+
+.deleteButton:hover {
+  background-color: #c9302c;
+}
+
+/* SearchUsers Styles */
+.userSearchContainer {
+  text-align: center;
+}
+
+.userSearchContainer input {
+  padding: 14px 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  width: 92%;
+}
+
+.userSearchContainer input:focus {
+  border-color: #c3c7f3;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+li:hover {
+  background-color: #f0f8ff;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.chatSender {
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+.chatTime {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.chatHistory {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.messageBubble {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.messageBubble.sent {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.messageBubble.received {
+  background-color: #f0f8ff;
+  align-self: flex-start;
+}
+
+.messageTimestamp {
+  font-size: 0.8em;
+  margin-top: 5px;
+  color: #999;
+  text-align: right;
+}
+
+.messageBubble.sent .messageTimestamp {
+  color: #cccccc;
+}
+
+.messageBubble.received .messageTimestamp {
+  color: #666666;
+}
+
+.messageInput {
+  width: 98%;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Make button wider */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.file-view {
+  color: #ffb6c1; /* Soft pink color */
+}
+
+.meeting-scheduler-submit-button {
+  background-color: pink;
+}
